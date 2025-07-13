@@ -27,9 +27,9 @@ contract Twitter {
         tweets[msg.sender].push(newTweet);
     }
 
-    function getTweet(address _owner, uint _i) public view returns (Tweet memory) {
-        require(_i < tweets[_owner].length, "Tweet does not exist");
-        return tweets[_owner][_i];
+    function getTweet(uint _i) public view returns (Tweet memory) {
+        require(_i < tweets[msg.sender].length, "Tweet does not exist");
+        return tweets[msg.sender][_i];
     }
 
     function getAllTweets(address _owner) public view returns (Tweet[] memory) {
